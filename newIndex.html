@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            background-color: #000;
+        }
+
+        .image-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            justify-self: center;
+            align-items: center;
+            padding: 15vh 0;
+        }
+
+        .image-item {
+            position: sticky;
+            top: 15vh;
+            padding: 15vh 25px;
+            overflow: hidden;
+            background-color: #878080;
+            border-radius: 8px;
+            height: 450px;
+            width: 400px;
+            display: flex;
+            justify-self: center;
+            align-items: center;
+
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+
+
+        /* Responsive for smaller screens */
+        @media (max-width: 768px) {
+            .image-grid {
+                flex-direction: column;
+                /* Still column-based on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-grid {
+                flex-direction: column;
+                /* Single column for mobile view */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="image-grid">
+        <div class="image-item card">
+            <img src="./images/1.png" alt="Image 1 Description">
+        </div>
+        <div class="image-item card">
+            <img src="./images/2.png" alt="Image 2 Description">
+        </div>
+        <div class="image-item card">
+            <img src="./images/3.png" alt="Image 3 Description">
+        </div>
+        <div class="image-item card">
+            <img src="./images/4.png" alt="Image 4 Description">
+        </div>
+        <div class="image-item card">
+            <img src="./images/5 .png" alt="Image 5 Description">
+        </div>
+        <div class="image-item card">
+            <img src="./images/6.png" alt="Image 6 Description">
+        </div>
+        <div class="image-item example">
+            <img src="./images/6.png" alt="Image 6 Description">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.querySelectorAll('.card').forEach((card) => {
+
+            gsap.to(card, {
+                scale: 0.5,
+                opacity: 0,
+                duration: 2,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 15%",
+                    end: "bottom 15%",
+                    markers: true,
+                    scrub: true
+                },
+            })
+        })
+
+
+
+    </script>
+</body>
+
+</html>

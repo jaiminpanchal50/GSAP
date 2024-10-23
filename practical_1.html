@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <h1>Hii GSAP</h1>
+    <h1>Hyy GSAP</h1>
+    <h1>Hello GSAP</h1>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        /// we have to property of GSAP animation 1.from 2.to        /// from mehtod is start like 100-0 destination to source and /// to method is start like 0-100 source to destination 
+        gsap.from('.box', {
+            x: 1500,
+            duration: 2,
+            rotate: 360,
+            // delay: 1,
+            backgroundColor: "black",
+            // borderRadius:"50%",
+            repeat:-1, /// repeat infinite time
+            yoyo:true // reverse the animation
+        })
+        // gsap.to('.box', {
+        //     x: 1500,
+        //     duration: 10,
+        //     rotate: 360,
+        //     delay: 5,
+        //     backgroundColor: "red",
+        //     borderRadius:"50%"
+        // })
+
+        gsap.from('H1',{
+            duration:4,
+            delay:2,
+            opacity:0,
+            y:120,
+            stagger:1 ,//duration
+            rotate:920,
+            repeat:-1,
+            yoyo:true
+        })
+
+        // gsap.to('H1',{
+        //     duration:3,
+        //     delay:3,
+        //     opacity:0,
+        //     y:120,
+        //     stagger:1 ,//duration
+        //     rotate:360,
+        //     repeat:-1
+        // })
+
+    </script>
+</body>
+
+</html>

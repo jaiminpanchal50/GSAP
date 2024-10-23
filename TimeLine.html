@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 40px;
+            background-color: rgb(165, 82, 30);
+            width: 10%;
+            position: absolute;
+            left: -25%;
+
+        }
+
+        /* .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        } */
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <Button class="bar"><i class="ri-bar-chart-horizontal-line"></i></Button>
+    <div class="box">
+        <!-- <h2>LOGO</h2> -->
+        <div class="container">
+            <h4>About </h4>
+            <h4>Contact us</h4>
+            <h4>Blog</h4>
+            <h4>Login</h4>
+            <button class="bar2">
+                <i class="ri-close-circle-line"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const bar = document.querySelector('.bar')
+        const bar2 = document.querySelector('.bar2')
+        const tl = gsap.timeline()
+        ///  / timeline is use for we need annd animation for all the element and in a sequence show after the first animation is done and then start the other element animation
+        tl.from("h2", {
+            y: -30,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            scale: 0.9,
+            ease: "elastic.out(2, 0.3)",
+
+        })
+
+
+        // tl.from('h4', {
+        //     opacity: 1,
+        //     // y: -70,
+        //    x: -170,
+        //     duration: 0.7,
+        //     stagger: 0.5,
+        //     ease: "elastic.out(2, 0.3)",
+        // })
+
+
+        tl.to('.box', {
+            left: 0,
+            duration: 0.5
+
+        })
+
+        tl.from('.box h4', {
+            opacity: 1,
+            x: 150,
+            duration: 1,
+            stagger: 0.5,
+            opacity: 0,
+        })
+        tl.pause()
+        // tl.reverse()
+        // tl.play()
+
+        bar.addEventListener('click', function () {
+            tl.play()
+        })
+        bar2.addEventListener('click', function () {
+            tl.reverse()
+        })
+
+
+    </script>
+</body>
+
+</html>
